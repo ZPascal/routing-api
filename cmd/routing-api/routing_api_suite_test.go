@@ -70,6 +70,7 @@ var (
 func TestMain(m *testing.M) {
 	RegisterFailHandler(Fail)
 	os.Exit(m.Run())
+	//TODO Adapt the test execution
 	RunSpecs(m, "Main Suite")
 }
 
@@ -84,6 +85,7 @@ var _ = SynchronizedBeforeSuite(
 		return []byte(strings.Join([]string{routingAPIBin, locketPath}, ","))
 	},
 	func(binPaths []byte) {
+		//TODO Adapt the logger
 		grpclog.SetLogger(log.New(ioutil.Discard, "", 0))
 
 		path := string(binPaths)
